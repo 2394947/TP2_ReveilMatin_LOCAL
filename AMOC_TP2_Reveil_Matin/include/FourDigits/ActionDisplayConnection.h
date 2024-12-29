@@ -1,6 +1,6 @@
 #pragma once
 #include <TM1637Display.h>
-#include "Affichage4Digits.h"
+#include "FourDigits/Display4Digits.h"
 
 class ActionDisplayConnection {
 private:
@@ -9,10 +9,10 @@ private:
 
     int m_lastUpdateTime; // Dernière mise à jour
     int m_interval; // Intervalle entre les états
-    Display4Digits* m_affichage4Digits;
+    Display4Digits* m_display4Digits;
 
 public:
-    ActionDisplayConnection(Display4Digits* p_affichage4Digits,int p_interval);
+    ActionDisplayConnection(Display4Digits* p_display4Digits,int p_interval);
 
     void displayConnectionAnimation();       // Met à jour l'état et l'affichage
 };

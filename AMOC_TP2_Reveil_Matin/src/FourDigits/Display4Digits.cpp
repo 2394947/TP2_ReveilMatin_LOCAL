@@ -1,6 +1,6 @@
 #include "FourDigits/Display4Digits.h"
 
-Display4Digits::Display4Digits(Affichage4DigitsProxy* p_proxy)
+Display4Digits::Display4Digits(Display4DigitsProxy* p_proxy)
     : m_proxy(p_proxy) {;}
  
 void Display4Digits::display(

@@ -12,7 +12,7 @@ Display4DigitsProxyTM1637::Display4DigitsProxyTM1637(
             p_dataPin
             );} 
             
-void Display4DigitsProxyTM1637::Display(
+void Display4DigitsProxyTM1637::display(
     uint8_t p_d1, 
     uint8_t p_d2,
     uint8_t p_d3,
@@ -21,7 +21,7 @@ void Display4DigitsProxyTM1637::Display(
     uint8_t segment[4] = {m_entiersTab[p_d1], m_entiersTab[p_d2], m_entiersTab[p_d3], m_entiersTab[p_d4]};
     m_tm1637->setSegments(segment);
 }
-void Display4DigitsProxyTM1637::DisplayInteger( uint8_t p_valeur) {
+void Display4DigitsProxyTM1637::displayInteger( uint8_t p_valeur) {
     uint8_t segment[4] = {m_entiersTab[16], m_entiersTab[16], m_entiersTab[16], m_entiersTab[p_valeur]};
     m_tm1637->setSegments(segment);
 }
