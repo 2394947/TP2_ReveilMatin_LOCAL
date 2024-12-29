@@ -1,22 +1,22 @@
-#include "FourDigits/Affichage4Digits.h"
+#include "FourDigits/Display4Digits.h"
 
-Affichage4Digits::Affichage4Digits(Affichage4DigitsProxy* p_proxy)
+Display4Digits::Display4Digits(Affichage4DigitsProxy* p_proxy)
     : m_proxy(p_proxy) {;}
  
-void Affichage4Digits::afficher(
+void Display4Digits::display(
     uint8_t p_d1, 
     uint8_t p_d2,
     uint8_t p_d3,
     uint8_t p_d4
 ) {
-    m_proxy->afficher(
+    m_proxy->display(
         p_d1, 
         p_d2,
         p_d3,
         p_d4
     );
 }
-void Affichage4Digits::afficherEntier(uint8_t p_valeur) {
-    m_proxy->afficherEntier(p_valeur);
+void Display4Digits::displayInteger(uint8_t p_valeur) {
+    m_proxy->displayInteger(p_valeur);
 }
     

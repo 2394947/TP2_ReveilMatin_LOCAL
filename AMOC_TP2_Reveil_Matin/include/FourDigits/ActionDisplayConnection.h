@@ -9,10 +9,10 @@ private:
 
     int m_lastUpdateTime; // Dernière mise à jour
     int m_interval; // Intervalle entre les états
-    Affichage4Digits* m_affichage4Digits;
+    Display4Digits* m_affichage4Digits;
 
 public:
-    ActionDisplayConnection(Affichage4Digits* p_affichage4Digits,int p_interval);
+    ActionDisplayConnection(Display4Digits* p_affichage4Digits,int p_interval);
 
     void displayConnectionAnimation();       // Met à jour l'état et l'affichage
 };

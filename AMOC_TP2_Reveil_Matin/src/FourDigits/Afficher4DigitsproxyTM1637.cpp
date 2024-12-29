@@ -1,18 +1,18 @@
-#include "FourDigits/Affichage4DigitsProxyTM1637.h"
+#include "FourDigits/Display4DigitsProxyTM1637.h"
 #include "config.h"
 
-Affichage4DigitsProxyTM1637::Affichage4DigitsProxyTM1637(
-    uint8_t p_pinHorloge,
-    uint8_t p_pinDonnees
+Display4DigitsProxyTM1637::Display4DigitsProxyTM1637(
+    uint8_t p_clockPin,
+    uint8_t p_dataPin
 ) : 
-    m_pinHorloge(p_pinHorloge),
-    m_pinDonnees(p_pinDonnees) { 
+    m_clockPin(p_clockPin),
+    m_dataPin(p_dataPin) { 
         m_tm1637 = new TM1637Display(
-            p_pinHorloge, 
-            p_pinDonnees
+            p_clockPin, 
+            p_dataPin
             );} 
             
-void Affichage4DigitsProxyTM1637::afficher(
+void Display4DigitsProxyTM1637::Display(
     uint8_t p_d1, 
     uint8_t p_d2,
     uint8_t p_d3,
@@ -21,7 +21,7 @@ void Affichage4DigitsProxyTM1637::afficher(
     uint8_t segment[4] = {m_entiersTab[p_d1], m_entiersTab[p_d2], m_entiersTab[p_d3], m_entiersTab[p_d4]};
     m_tm1637->setSegments(segment);
 }
-void Affichage4DigitsProxyTM1637::afficherEntier( uint8_t p_valeur) {
+void Display4DigitsProxyTM1637::DisplayInteger( uint8_t p_valeur) {
     uint8_t segment[4] = {m_entiersTab[16], m_entiersTab[16], m_entiersTab[16], m_entiersTab[p_valeur]};
     m_tm1637->setSegments(segment);
 }

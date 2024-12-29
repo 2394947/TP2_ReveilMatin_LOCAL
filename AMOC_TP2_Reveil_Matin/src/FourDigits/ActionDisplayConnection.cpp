@@ -1,7 +1,7 @@
 #include "FourDigits/ActionDisplayConnection.h"
 #include "config.h"
 
-ActionDisplayConnection::ActionDisplayConnection(Affichage4Digits* p_affichage4Digits, int p_interval)
+ActionDisplayConnection::ActionDisplayConnection(Display4Digits* p_affichage4Digits, int p_interval)
     :  m_affichage4Digits(p_affichage4Digits),
        m_interval(p_interval){ 
         this->m_lastUpdateTime = 0;
