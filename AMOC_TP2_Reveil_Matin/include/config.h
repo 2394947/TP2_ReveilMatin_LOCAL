@@ -1,6 +1,7 @@
 #pragma once
 #include <Arduino.h>
 
+#define DEFAULT_NB_ALARMS 5
 #define CLK 25
 #define DIO 26
 #define TIMEZONE -5 * 3600

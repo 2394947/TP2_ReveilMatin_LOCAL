@@ -2,7 +2,7 @@
 #include <Arduino.h>
 #include <WiFi.h>
 #include "config.h"
-#include "FourDigits/ActionDisplayConnection.h"
+#include "Actions/ActionDisplayConnection.h"
 
 class Connection {
 private:

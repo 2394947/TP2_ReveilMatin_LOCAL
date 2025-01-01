@@ -1,4 +1,4 @@
-#include "FourDigits/ActionDisplayConnection.h"
+#include "Actions/ActionDisplayConnection.h"
 #include "config.h"
 
 ActionDisplayConnection::ActionDisplayConnection(Display4Digits* p_display4Digits, int p_interval)
