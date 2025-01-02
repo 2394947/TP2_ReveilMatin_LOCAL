@@ -44,9 +44,9 @@ void Connection::connectToNetwork()
 
     Serial.print("Connexion: [");
     while (nbTry < NB_TRY_MAX && WiFi.status() != WL_CONNECTED)
-    {
-      this->m_actionDisplayConnection->displayConnectionAnimation();
+    {      
       delay(500);
+      this->m_actionDisplayConnection->displayConnectionAnimation();
       Serial.print("=");
       ++nbTry;
     }

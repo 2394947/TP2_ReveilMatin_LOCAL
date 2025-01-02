@@ -3,21 +3,22 @@
 
 ActionDisplayConnection::ActionDisplayConnection(Display4Digits* p_display4Digits, int p_interval)
     :  m_display4Digits(p_display4Digits),
-       m_interval(p_interval){ 
+       m_interval(p_interval),
+       m_state(SHOW_D) { 
         this->m_lastUpdateTime = 0;
 }
 
 void ActionDisplayConnection::displayConnectionAnimation() {
-    unsigned long currentTime = millis();
+    // unsigned long currentTime = millis();
 
-    if (currentTime - m_lastUpdateTime >= m_interval) {
-        m_lastUpdateTime = currentTime;
+    // if (currentTime - m_lastUpdateTime >= m_interval) {
+    //     m_lastUpdateTime = currentTime;
 
         // Gestion des animations avant la connexion
         switch (m_state) {
             case SHOW_D:
                 this->m_display4Digits->display(0,0,0,0); // Segment d
-                m_state = SHOW_G;
+               m_state = SHOW_G;
                 break;
             case SHOW_G:
                 this->m_display4Digits->display(1,1,1,1); // Segment g
@@ -28,7 +29,7 @@ void ActionDisplayConnection::displayConnectionAnimation() {
                 m_state = SHOW_D;
                 break;
         }
-    }
+    //}
 }
 
 
