@@ -22,5 +22,5 @@ Program::Program()
 void Program::loop()
 {
     this->m_connection->tick();
-    this->m_realTimeClock->DisplayTime();
+    this->m_realTimeClock->getTime();
 }

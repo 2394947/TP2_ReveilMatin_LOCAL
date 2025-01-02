@@ -1,5 +1,5 @@
 #include "Connection.h"
-#include "RealTimeClock.h"
+#include "NTPClock.h"
 #include "Actions/ActionDisplayConnection.h"
 #include "FourDigits/Display4Digits.h"
 #include "FourDigits/Display4DigitsProxyTM1637.h"
