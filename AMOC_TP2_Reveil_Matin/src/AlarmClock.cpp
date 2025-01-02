@@ -2,16 +2,12 @@
 
 AlarmClock::AlarmClock(Display4Digits *p_display4Digits,
                        ButtonDisplayAvailableAlarm *p_buttonDisplayAlarm,
-                       RealTimeClock *p_realTimeClock,
-                       Alarm *p_alarms[DEFAULT_NB_ALARMS])
+                       RealTimeClock *p_realTimeClock)
     : m_display4Digits(p_display4Digits),
       m_buttonDisplayAlarm(p_buttonDisplayAlarm),
       m_realTimeClock(p_realTimeClock)
 {
-    for (size_t i = 0; i < DEFAULT_NB_ALARMS; ++i)
-    {
-        m_alarms[i] = p_alarms[i];
-    }
+    this->createDefaultAlarms();
 }
 
 void AlarmClock::ShowAvailableAlarms()
@@ -23,6 +19,7 @@ void AlarmClock::ShowAvailableAlarms()
     uint8_t fourthDigit = alarm->getMinutes() % 10;
 
     this->m_display4Digits->display(firstDigit, secondDigit | 0b10000000, thirdDigit, fourthDigit);
+    this->nextAlarm();
 }
 
 void AlarmClock::nextAlarm()
@@ -33,5 +30,11 @@ void AlarmClock::nextAlarm()
     }
     else{
         this->m_alarmsIndex = 0;
+    }
+}
+
+void AlarmClock::createDefaultAlarms(){
+    for(uint8_t index=0; index<DEFAULT_NB_ALARMS;index++){
+        this->m_alarms[index] = new Alarm(5+index,0);
     }
 }

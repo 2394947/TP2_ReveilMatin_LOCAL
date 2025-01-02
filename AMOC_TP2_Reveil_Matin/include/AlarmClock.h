@@ -15,9 +15,9 @@ private:
 public:
     AlarmClock(Display4Digits* p_display4Digits,
                ButtonDisplayAvailableAlarm* p_buttonDisplayAlarm,
-               RealTimeClock* p_realTimeClock,
-                Alarm* p_alarms[DEFAULT_NB_ALARMS]);                           //Je me suis dis quon pourrait creer un tableau dalarmes par defaut dans le program.cpp ou config.h
+               RealTimeClock* p_realTimeClock);                           //Je me suis dis quon pourrait creer un tableau dalarmes par defaut dans le program.cpp ou config.h
     void ShowAvailableAlarms();                                                // En lien avec le bouton 1, affichera la prochaine alarme a chaque pression.
     void nextAlarm();                                                          // En lien avec le bouton 1, Incremente lindex du tableau des alarmes
     void run();                                                                // Met en marche le reveil Matin, sera mise dans loop() pour savoir quoi faire selon quel boutton est presse.. a suivre  
+    void createDefaultAlarms();                                                             
 };
