@@ -13,9 +13,9 @@ private:
     InternalClock* m_internalClock;                                            
     uint8_t m_alarmsIndex;
     void createDefaultAlarms();                                                             
-    void ShowAvailableAlarms();                                                
+    void showAvailableAlarms();                                                
     void nextAlarm();                                                          
-    void DisplayTime();                                                     
+    void displayTime();                                                     
 public:
     AlarmClock(Display4Digits* p_display4Digits,
                ButtonDisplayAvailableAlarm* p_buttonDisplayAlarm,
