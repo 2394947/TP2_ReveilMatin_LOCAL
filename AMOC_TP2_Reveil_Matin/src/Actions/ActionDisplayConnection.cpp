@@ -7,7 +7,7 @@ ActionDisplayConnection::ActionDisplayConnection(Display4Digits* p_display4Digit
         ;
 }
 
-void ActionDisplayConnection::displayConnectionAnimation() {
+void ActionDisplayConnection::execute() {
         
         switch (m_state) {
             case SHOW_D:
