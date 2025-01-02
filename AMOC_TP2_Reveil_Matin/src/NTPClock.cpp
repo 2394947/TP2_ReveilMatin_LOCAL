@@ -1,4 +1,4 @@
-#include "RealTimeClock.h"
+#include "NTPClock.h"
 
 RealTimeClock::RealTimeClock(const char *p_serverRegion, long p_timezone, unsigned long p_updateInterval)
     : m_ntpUDP(),
