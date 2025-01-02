@@ -22,6 +22,6 @@ void Display4DigitsProxyTM1637::display(
     m_tm1637->setSegments(segment);
 }
 void Display4DigitsProxyTM1637::displayInteger( uint8_t p_valeur) {
-    uint8_t segment[4] = {m_entiersTab[16], m_entiersTab[16], m_entiersTab[16], m_entiersTab[p_valeur]};
+    uint8_t segment[4] = {m_entiersTab[19], m_entiersTab[19], m_entiersTab[19], m_entiersTab[p_valeur]};
     m_tm1637->setSegments(segment);
 }
