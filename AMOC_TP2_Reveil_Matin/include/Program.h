@@ -8,7 +8,7 @@ class Program
 public:
     Display4Digits *m_display4Digits;
     Connection *m_connection;
-    RealTimeClock *m_realTimeClock;
+    NTPClock *m_realTimeClock;
     ActionDisplayConnection *m_actionDisplayConnection;
     Program();
     void loop();

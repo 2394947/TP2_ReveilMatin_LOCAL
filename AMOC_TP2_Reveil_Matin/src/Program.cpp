@@ -16,7 +16,7 @@ Program::Program()
     this->m_connection = new Connection(INTERVAL_5,this->m_actionDisplayConnection);
     Serial.begin(SERIAL_SPEED);
     this->m_connection->connectToNetwork();
-    this->m_realTimeClock = new RealTimeClock(NTP_SERVER_REGION, TIMEZONE, UPDATE_INTERVAL);
+    this->m_realTimeClock = new NTPClock(NTP_SERVER_REGION, TIMEZONE, UPDATE_INTERVAL);
 }
 
 void Program::loop()
