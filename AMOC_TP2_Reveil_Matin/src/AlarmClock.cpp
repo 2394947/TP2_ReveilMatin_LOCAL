@@ -27,20 +27,20 @@ void AlarmClock::nextAlarm() {
         this->m_alarmsIndex++;
     }
     else{
-        this->m_alarmsIndex = 0;
+        this->m_alarmsIndex = DEFAULT;
     }
 }
 
 void AlarmClock::createDefaultAlarms() {
     for(uint8_t index=0; index<DEFAULT_NB_ALARMS;index++){
-        this->m_alarms[index] = new Alarm(5+index,0);
+        this->m_alarms[index] = new Alarm(5+index,DEFAULT);
     }
 }
 
 void AlarmClock::displayTime() {
     String time = this->m_internalClock->getInternalClockTime();
     int firstDigit = time.substring(0, 1).toInt();
-    if(firstDigit == 0){
+    if(firstDigit == TAB_NULL){
         firstDigit = 16;
     }
     int secondDigit = time.substring(1, 1).toInt();
