@@ -6,19 +6,17 @@
 #include "config.h"
 
 class AlarmClock {
-private:
-    ButtonDisplayAvailableAlarm* m_buttonDisplayAlarm;                         
+private:                       
     Alarm* m_alarms[DEFAULT_NB_ALARMS];                                        
     Display4Digits* m_display4Digits;                                          
     InternalClock* m_internalClock;                                            
     uint8_t m_alarmsIndex;
     void createDefaultAlarms();                                                             
-    void showAvailableAlarms();                                                
     void nextAlarm();                                                          
     void displayTime();                                                     
 public:
     AlarmClock(Display4Digits* p_display4Digits,
-               ButtonDisplayAvailableAlarm* p_buttonDisplayAlarm,
                InternalClock* p_internalClock);                                
+    void showAvailableAlarms();                                                
     void run();                                                                
 };

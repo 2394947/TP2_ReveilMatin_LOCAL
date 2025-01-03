@@ -1,6 +1,8 @@
 #pragma once
 #include <Arduino.h>
 #include "Button.h"
+#include "Actions/ActionDisplayAlarms.h"
+#include "config.h"
 
 class ButtonDisplayAvailableAlarm : Button {
 private:
@@ -12,13 +14,12 @@ private:
     uint8_t m_actualTime;
     uint8_t m_lastTimeChange;
     uint8_t m_actionDelayMS;
-
-    bool m_isPressed;
-
+    ActionDisplayAlarms* m_actionDisplayAlarms;
 public:
     ButtonDisplayAvailableAlarm( 
         uint8_t p_pin,
-        uint8_t p_actionDelayMS
+        uint8_t p_actionDelayMS,
+        ActionDisplayAlarms* p_actionDisplayAlarms
     );
     void tick() override;
 };

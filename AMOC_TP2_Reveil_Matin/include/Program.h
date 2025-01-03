@@ -2,6 +2,7 @@
 #include "NTPClock.h"
 #include "InternalClock.h"
 #include "AlarmClock.h"
+#include "Actions/ActionDisplayAlarms.h"
 #include "Buttons/ButtonDisplayAvailableAlarm.h"
 #include "Actions/ActionDisplayConnection.h"
 #include "FourDigits/Display4Digits.h"
@@ -14,6 +15,7 @@ public:
     NTPClock *m_ntpClock;
     InternalClock* m_internalClock;
     AlarmClock* m_alarmClock;
+    ActionDisplayAlarms* m_actionDisplayAlarms;
     ButtonDisplayAvailableAlarm* m_buttonDisplayAlarms;
     ActionDisplayConnection *m_actionDisplayConnection;
     Program();

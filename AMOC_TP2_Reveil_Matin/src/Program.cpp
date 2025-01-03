@@ -23,15 +23,16 @@ Program::Program()
                                    );
     this->m_internalClock = new InternalClock(this->m_ntpClock,
                                               INTERVAL_1);
-    this->m_buttonDisplayAlarms = new ButtonDisplayAvailableAlarm(pinButtonAlarms,INTERVAL_40);
     this->m_alarmClock = new AlarmClock(this->m_display4Digits,
-                                        this->m_buttonDisplayAlarms
-                                       ,this->m_internalClock
+                                        this->m_internalClock
                                        );
+    this->m_actionDisplayAlarms = new ActionDisplayAlarms(this->m_alarmClock);
+    this->m_buttonDisplayAlarms = new ButtonDisplayAvailableAlarm(pinButtonAlarms,INTERVAL_40,this->m_actionDisplayAlarms);
 }
 
 void Program::loop() {
     this->m_connection->tick();
     this->m_internalClock->tick();
     this->m_alarmClock->run();
+    this->m_buttonDisplayAlarms->tick();
 }
