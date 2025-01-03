@@ -2,7 +2,7 @@
 #include "FourDigits/Display4Digits.h"
 #include "InternalClock.h"
 #include "Alarm.h"
-#include "config.h"
+#include "constantes.h"
 
 class AlarmClock {
 private:                       

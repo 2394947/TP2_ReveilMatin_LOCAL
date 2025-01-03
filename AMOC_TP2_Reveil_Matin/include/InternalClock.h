@@ -1,7 +1,7 @@
 #pragma once
 #include <Arduino.h>
 #include "NTPClock.h"
-#include "config.h"
+#include "constantes.h"
 
 
 class InternalClock {
