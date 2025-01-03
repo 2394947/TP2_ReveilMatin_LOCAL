@@ -16,6 +16,7 @@ private:
 public:
     AlarmClock(Display4Digits* p_display4Digits,
                InternalClock* p_internalClock);                                
+    Alarm* getLastDisplayedAlarm();
     void showAvailableAlarms();                                                
     void run();                                                                
 };

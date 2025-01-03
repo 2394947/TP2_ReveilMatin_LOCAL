@@ -22,3 +22,7 @@ uint8_t Alarm::getHours(){
 uint8_t Alarm::getMinutes(){
     return this->m_minutes;
 }
+
+bool Alarm::isActivated(){
+    return this->m_isActive;
+}
