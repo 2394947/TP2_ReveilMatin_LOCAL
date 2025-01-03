@@ -3,11 +3,13 @@
 ButtonDisplayAvailableAlarm::ButtonDisplayAvailableAlarm(
     uint8_t p_pin,
     uint8_t p_actionDelayMS,
-    ActionDisplayAlarms* p_actionDisplayAlarms
+    ActionDisplayAlarms* p_actionDisplayAlarms,
+    ActionDisplayLEDs* p_ActionDisplayLEDs
 )
     : m_pin(p_pin),
       m_actionDelayMS(p_actionDelayMS),
       m_actionDisplayAlarms(p_actionDisplayAlarms),
+      m_actionDisplayLEDs(p_ActionDisplayLEDs),
       m_buttonState(HIGH),
       m_actualTime(DEFAULT),
       m_lastTimeChange(DEFAULT),
@@ -30,6 +32,7 @@ void ButtonDisplayAvailableAlarm::tick() {
         if (this->m_lastButtonStableState == LOW && this->m_buttonState == HIGH)
         {
            this->m_actionDisplayAlarms->execute();
+           this->m_actionDisplayLEDs->execute();
         }
         this->m_lastButtonStableState = this->m_buttonState;
     }
