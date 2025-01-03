@@ -12,8 +12,7 @@ Program::Program()
     Serial.begin(SERIAL_SPEED);
     this->m_yellowLED = new LED(YELLOW_PIN);
     this->m_redLED = new LED(RED_PIN);
-    Display4Digits* p_display4Digits = new Display4Digits(p_proxy);
-    this->m_display4Digits = p_display4Digits;
+    this->m_display4Digits = new Display4Digits(p_proxy);
     this->m_actionDisplayConnection = new ActionDisplayConnection(this->m_display4Digits);
     this->m_connection = new Connection(INTERVAL_5,
                                         this->m_actionDisplayConnection);
