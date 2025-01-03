@@ -15,6 +15,9 @@ Program::Program()
     Display4Digits* p_display4Digits = new Display4Digits(p_proxy);
     this->m_display4Digits = p_display4Digits;
     this->m_actionDisplayConnection = new ActionDisplayConnection(this->m_display4Digits);
+    this->m_connection = new Connection(INTERVAL_5,
+                                        this->m_actionDisplayConnection);
+    this->m_connection->connectToNetwork();
     this->m_ntpClock = new NTPClock(NTP_SERVER_REGION,
                                     TIMEZONE, UPDATE_INTERVAL
                                    );
@@ -25,13 +28,10 @@ Program::Program()
                                         this->m_buttonDisplayAlarms
                                        ,this->m_internalClock
                                        );
-    this->m_connection = new Connection(INTERVAL_5,
-                                        this->m_actionDisplayConnection);
-    this->m_connection->connectToNetwork();
 }
 
 void Program::loop() {
     this->m_connection->tick();
+    this->m_internalClock->tick();
     this->m_alarmClock->run();
-    // this->m_ntpClock->getTime();
 }
