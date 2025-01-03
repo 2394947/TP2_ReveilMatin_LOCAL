@@ -16,7 +16,7 @@ void AlarmClock::showAvailableAlarms() {
     uint8_t thirdDigit = alarm->getMinutes() / 10;
     uint8_t fourthDigit = alarm->getMinutes() % 10;
 
-    this->m_display4Digits->display(firstDigit, secondDigit | 0b10000000, thirdDigit, fourthDigit);
+    this->m_display4Digits->display(firstDigit, secondDigit | TAB_SEG_DP, thirdDigit, fourthDigit);
     this->nextAlarm();
 }
 

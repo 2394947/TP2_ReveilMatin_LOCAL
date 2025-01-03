@@ -3,7 +3,7 @@
 #include "Button.h"
 #include "Actions/ActionDisplayAlarms.h"
 #include "Actions/ActionDisplayLEDs.h"
-#include "config.h"
+#include "constantes.h"
 
 class ButtonDisplayAvailableAlarm : Button {
 private:
