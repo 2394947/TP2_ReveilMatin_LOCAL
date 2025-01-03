@@ -10,6 +10,7 @@ private:
     Display4Digits* m_display4Digits;                                          
     InternalClock* m_internalClock;                                            
     uint8_t m_alarmsIndex;
+    bool m_isInAlarmDisplay;
     void createDefaultAlarms();                                                             
     void nextAlarm();                                                          
     void displayTime();                                                     
@@ -17,6 +18,8 @@ public:
     AlarmClock(Display4Digits* p_display4Digits,
                InternalClock* p_internalClock);                                
     Alarm* getLastDisplayedAlarm();
-    void showAvailableAlarms();                                                
+    void showAvailableAlarms();
+    void setDisplayAlarmState(bool p_isInAlarmDisplay); 
+    bool getDisplayAlarmState();                                               
     void run();                                                                
 };

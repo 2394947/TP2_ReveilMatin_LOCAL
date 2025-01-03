@@ -28,7 +28,9 @@ Program::Program()
                                        );
     this->m_actionDisplayAlarms = new ActionDisplayAlarms(this->m_alarmClock);
     this->m_actionDisplayLEDs = new ActionDisplayLEDs(this->m_yellowLED,this->m_redLED,this->m_alarmClock);
+    this->m_actionActivateAlarm = new ActionActivateAlarm(this->m_alarmClock);
     this->m_buttonDisplayAlarms = new ButtonDisplayAvailableAlarm(BUTTON1_PIN,INTERVAL_40,this->m_actionDisplayAlarms,this->m_actionDisplayLEDs);
+    this->m_buttonActivateAlarm = new ButtonActivateAlarm(BUTTON2_PIN,INTERVAL_40,this->m_actionActivateAlarm);
 }
 
 void Program::loop() {
@@ -36,4 +38,5 @@ void Program::loop() {
     this->m_internalClock->tick();
     this->m_alarmClock->run();
     this->m_buttonDisplayAlarms->tick();
+    this->m_buttonActivateAlarm->tick();
 }

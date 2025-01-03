@@ -5,7 +5,8 @@ AlarmClock::AlarmClock(
     InternalClock *p_internalClock
     )
       : m_display4Digits(p_display4Digits),
-        m_internalClock(p_internalClock) {
+        m_internalClock(p_internalClock),
+        m_isInAlarmDisplay(false) {
             this->createDefaultAlarms();
 }
 
@@ -50,6 +51,14 @@ void AlarmClock::displayTime() {
 
 Alarm* AlarmClock::getLastDisplayedAlarm() {
     return this->m_alarms[this->m_alarmsIndex];
+}
+
+void AlarmClock::setDisplayAlarmState(bool p_isInAlarmDisplay) {
+    this->m_isInAlarmDisplay = p_isInAlarmDisplay;
+} 
+
+bool AlarmClock::getDisplayAlarmState() {
+    return this->m_isInAlarmDisplay;
 }
 
 void AlarmClock::run() {
