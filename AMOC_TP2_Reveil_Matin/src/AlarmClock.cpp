@@ -40,7 +40,7 @@ void AlarmClock::createDefaultAlarms(){
 }
 
 void AlarmClock::displayTime(){
-    String time = this->m_internalClock->getTime();
+    String time = this->m_internalClock->getInternalClockTime();
     int firstDigit = time.substring(0, 1).toInt();
     if(firstDigit == 0){
         firstDigit = 16;

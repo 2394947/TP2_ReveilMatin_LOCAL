@@ -2,7 +2,7 @@
 #include <NTPClient.h>
 #include <WiFiUdp.h>
 
-uint8_t pinButtonAlarms = 2; 
+uint8_t pinButtonAlarms = 17; 
 
 Program::Program()
     : m_connection(nullptr),
@@ -20,7 +20,7 @@ Program::Program()
                                    );
     this->m_internalClock = new InternalClock(this->m_ntpClock,
                                               INTERVAL_1);
-    this->m_buttonDisplayAlarms = new ButtonDisplayAvailableAlarm(pinButtonAlarms,500);
+    this->m_buttonDisplayAlarms = new ButtonDisplayAvailableAlarm(pinButtonAlarms,INTERVAL_40);
     this->m_alarmClock = new AlarmClock(this->m_display4Digits,
                                         this->m_buttonDisplayAlarms
                                        ,this->m_internalClock
