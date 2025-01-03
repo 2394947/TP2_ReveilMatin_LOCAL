@@ -52,3 +52,7 @@ Alarm* AlarmClock::getLastDisplayedAlarm() {
     return this->m_alarms[this->m_alarmsIndex];
 }
 
+void AlarmClock::run() {
+    this->displayTime();
+}
+
