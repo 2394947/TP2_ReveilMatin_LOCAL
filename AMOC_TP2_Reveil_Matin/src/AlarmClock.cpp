@@ -45,7 +45,7 @@ void AlarmClock::displayTime() {
     int secondDigit = time.substring(1, 1).toInt();
     int thirdDigit = time.substring(2, 1).toInt();
     int fourthDigit = time.substring(3, 1).toInt();
-    this->m_display4Digits->display(firstDigit,secondDigit | 0b10000000,thirdDigit,fourthDigit);
+    this->m_display4Digits->display(firstDigit,secondDigit,thirdDigit,fourthDigit);
 }
 
 Alarm* AlarmClock::getLastDisplayedAlarm() {

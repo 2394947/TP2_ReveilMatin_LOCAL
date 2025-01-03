@@ -32,12 +32,8 @@ Program::Program()
 }
 
 void Program::loop() {
-    // this->m_connection->tick();
-    // this->m_internalClock->tick();
-    // this->m_alarmClock->run();
-    // this->m_buttonDisplayAlarms->tick();
-    for(int i=0;i<21;i++){
-      delay(500);
-      this->m_display4Digits->displayInteger(m_entiersTab[i]);
-    }
+    this->m_connection->tick();
+    this->m_internalClock->tick();
+    this->m_alarmClock->run();
+    this->m_buttonDisplayAlarms->tick();
 }
