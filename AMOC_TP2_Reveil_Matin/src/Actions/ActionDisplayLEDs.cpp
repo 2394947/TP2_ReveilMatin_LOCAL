@@ -11,8 +11,11 @@ ActionDisplayLEDs::ActionDisplayLEDs(LED* p_yellowLED,
 
 void ActionDisplayLEDs::execute() {
     this->m_redLED->shut();
-    this->m_yellowLED->light();
+    this->m_alarmClock->setDisplayAlarmState(true);
     if(this->m_alarmClock->getLastDisplayedAlarm()->isActivated()) {
         this->m_redLED->light();
+    }
+    while(this->m_alarmClock->getDisplayAlarmState() == true){
+      this->m_yellowLED->flicker();
     }
 }

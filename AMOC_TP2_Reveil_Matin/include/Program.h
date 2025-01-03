@@ -4,7 +4,9 @@
 #include "InternalClock.h"
 #include "Actions/ActionDisplayAlarms.h"
 #include "Actions/ActionDisplayLEDs.h"
+#include "Actions/ActionActivateAlarm.h"
 #include "Buttons/ButtonDisplayAvailableAlarm.h"
+#include "Buttons/ButtonActivateAlarm.h"
 #include "AlarmClock.h"
 #include "Actions/ActionDisplayConnection.h"
 #include "FourDigits/Display4Digits.h"
@@ -21,7 +23,9 @@ public:
     AlarmClock* m_alarmClock;
     ActionDisplayAlarms* m_actionDisplayAlarms;
     ActionDisplayLEDs* m_actionDisplayLEDs;
+    ActionActivateAlarm* m_actionActivateAlarm;
     ButtonDisplayAvailableAlarm* m_buttonDisplayAlarms;
+    ButtonActivateAlarm* m_buttonActivateAlarm;
     ActionDisplayConnection *m_actionDisplayConnection;
     Program();
     void loop();

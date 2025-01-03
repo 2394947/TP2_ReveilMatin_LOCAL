@@ -74,6 +74,7 @@ const uint8_t m_entiersTab[21] = {
 #define INTERVAL_3 3000                     // 3 secondes
 #define INTERVAL_2 2000                     // 2 secondes
 #define INTERVAL_1 1000                     // 1 secondes
+#define INTERVAL_500 500                    // 500 millis secondes
 #define INTERVAL_50 50                      // 50 millis secondes
 #define INTERVAL_40 40                      // 40 millis secondes
 #define INTERVAL_30 30                      // 30 millis secondes
