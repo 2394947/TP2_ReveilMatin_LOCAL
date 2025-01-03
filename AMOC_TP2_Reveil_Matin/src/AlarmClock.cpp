@@ -43,9 +43,9 @@ void AlarmClock::displayTime() {
     if(firstDigit == TAB_NULL){
         firstDigit = 16;
     }
-    int secondDigit = time.substring(1, 1).toInt();
-    int thirdDigit = time.substring(2, 1).toInt();
-    int fourthDigit = time.substring(3, 1).toInt();
+    int secondDigit = time.substring(1, 2).toInt();
+    int thirdDigit = time.substring(2, 3).toInt();
+    int fourthDigit = time.substring(3, 4).toInt();
     this->m_display4Digits->display(firstDigit,secondDigit,thirdDigit,fourthDigit);
 }
 
