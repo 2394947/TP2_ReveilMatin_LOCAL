@@ -2,8 +2,6 @@
 #include <NTPClient.h>
 #include <WiFiUdp.h>
 
-uint8_t pinButtonAlarms = 17; 
-
 Program::Program()
     : m_connection(nullptr),
       m_ntpClock(nullptr) {
@@ -12,6 +10,8 @@ Program::Program()
     DIO
     );
     Serial.begin(SERIAL_SPEED);
+    this->m_yellowLED = new LED(YELLOW_PIN);
+    this->m_redLED = new LED(RED_PIN);
     Display4Digits* p_display4Digits = new Display4Digits(p_proxy);
     this->m_display4Digits = p_display4Digits;
     this->m_actionDisplayConnection = new ActionDisplayConnection(this->m_display4Digits);
@@ -27,7 +27,8 @@ Program::Program()
                                         this->m_internalClock
                                        );
     this->m_actionDisplayAlarms = new ActionDisplayAlarms(this->m_alarmClock);
-    this->m_buttonDisplayAlarms = new ButtonDisplayAvailableAlarm(pinButtonAlarms,INTERVAL_40,this->m_actionDisplayAlarms);
+    this->m_actionDisplayLEDs = new ActionDisplayLEDs(this->m_yellowLED,this->m_redLED,this->m_alarmClock);
+    this->m_buttonDisplayAlarms = new ButtonDisplayAvailableAlarm(BUTTON1_PIN,INTERVAL_40,this->m_actionDisplayAlarms,this->m_actionDisplayLEDs);
 }
 
 void Program::loop() {

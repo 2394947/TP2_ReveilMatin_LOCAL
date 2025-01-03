@@ -3,13 +3,12 @@
 
 #define CLK 25
 #define DIO 26
-// #define RED_PIN                           // digit/analog
-// #define GREEN_PIN                        // digit/analog
-// #define BLUE_PIN                          // digit/analog
-// #define BUZZER_PIN                          // analog
-#define BUTTON1_PIN 17                         // digit/analog
-// #define BUTTON2_PIN                         // digit/analog
-// #define BUTTON3_PIN                         // digit/analog
+#define RED_PIN   14                        
+#define YELLOW_PIN 12
+#define BUZZER_PIN 13                        
+#define BUTTON1_PIN 17                         
+#define BUTTON2_PIN 16                       
+#define BUTTON3_PIN 27                         
 
 #define DEFAULT_NB_ALARMS 5
 #define TIMEZONE -5 * 3600
