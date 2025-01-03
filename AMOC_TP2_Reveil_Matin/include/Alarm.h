@@ -13,7 +13,7 @@ public:
 
     void activate();
     void deactivate();
-
+    bool isActivated();
     uint8_t getHours();
     uint8_t getMinutes();
 };

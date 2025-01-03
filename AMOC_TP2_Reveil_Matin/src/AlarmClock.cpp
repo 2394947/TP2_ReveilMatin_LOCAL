@@ -48,6 +48,7 @@ void AlarmClock::displayTime() {
     this->m_display4Digits->display(firstDigit,secondDigit | 0b10000000,thirdDigit,fourthDigit);
 }
 
-void AlarmClock::run() {
-    this->displayTime();
+Alarm* AlarmClock::getLastDisplayedAlarm() {
+    return this->m_alarms[this->m_alarmsIndex];
 }
+
