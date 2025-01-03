@@ -4,7 +4,7 @@ Connection::Connection(
     uint16_t p_intervalUpdate,
     ActionDisplayConnection *p_actionDisplayConnection
     ) 
-      : m_lastUpdate(DEFAUT),
+      : m_lastUpdate(DEFAULT),
         m_actionDisplayConnection(p_actionDisplayConnection),
         m_intervalUpdate(p_intervalUpdate),
         m_url("inconnu"),

@@ -26,7 +26,7 @@ const uint8_t m_entiersTab[20] = {
 #define INTERVAL_50 50                      // 50 millis secondes
 #define INTERVAL_40 40                      // 40 millis secondes
 #define INTERVAL_30 30                      // 30 millis secondes
-#define DEFAUT 0
+#define DEFAULT 0
 
 #define RED_PIN 25                          // digit/analog
 #define GREEN_PIN 26                        // digit/analog
