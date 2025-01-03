@@ -1,5 +1,5 @@
 #include "FourDigits/Display4DigitsProxyTM1637.h"
-#include "config.h"
+#include "constantes.h"
 
 Display4DigitsProxyTM1637::Display4DigitsProxyTM1637(
     uint8_t p_clockPin,
