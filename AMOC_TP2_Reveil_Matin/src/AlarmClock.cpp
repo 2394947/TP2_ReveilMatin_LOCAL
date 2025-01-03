@@ -52,5 +52,5 @@ void AlarmClock::displayTime(){
 }
 
 void AlarmClock::run(){
-    
+    this->displayTime();
 }
