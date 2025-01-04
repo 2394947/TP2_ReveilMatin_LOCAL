@@ -1,6 +1,10 @@
 #pragma once
 #include <Arduino.h>
 
+// Pour le fichier des alarmes
+ const char* ALARM_FILE = "/alarms.json";
+ const size_t MAX_SIZE = 2048;
+ const size_t ALARM_FILE_SIZE = 256;
 // Valeurs des pins
 #define CLK 25
 #define DIO 26
