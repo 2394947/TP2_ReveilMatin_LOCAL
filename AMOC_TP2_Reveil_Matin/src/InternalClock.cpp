@@ -61,9 +61,12 @@ void InternalClock::tick() {
     }
 }
 
-// void InternalClock::run() {
-//     while (true) { // boucle infinie pour faire rouler le tick()
-//         tick();
-//         vTaskDelay(pdMS_TO_TICKS(this->m_intervalUpdate)); 
-//     }
-// }
+/**************************************************************************************************************/
+// Références https://github.com/RalphBacon/ESP32-Dual-Core-Programming/blob/master/ESP32_DUALCORE_BLINK.ino
+// lignes 10 et 22 créer une fonction pour rouler mon tick() dans une boucle infinis qui roulera sur le coeur1.
+void InternalClock::run() {
+    while (true) { 
+        tick();
+    }
+}
+/**************************************************************************************************************/

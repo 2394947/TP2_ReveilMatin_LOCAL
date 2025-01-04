@@ -23,6 +23,6 @@ public:
         uint16_t p_intervalUpdate
         );
     String getInternalClockTime();
-    //void run();
+    void run();
     void tick();
 };
