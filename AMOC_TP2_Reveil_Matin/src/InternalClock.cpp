@@ -5,11 +5,11 @@ InternalClock::InternalClock(
     uint16_t p_intervalUpdate
     )
       : m_NTPClock(p_NTPClock),
-        m_currentTime(0),
-        m_hours(0),
-        m_minutes(0),
-        m_seconds(0),
-        m_lastUpdate(0),
+        m_currentTime(DEFAULT),
+        m_hours(DEFAULT),
+        m_minutes(DEFAULT),
+        m_seconds(DEFAULT),
+        m_lastUpdate(DEFAULT),
         m_intervalUpdate(p_intervalUpdate) { 
             syncWithNTP();
          }
@@ -18,13 +18,13 @@ void InternalClock::computeTime() {
     // Incrémentation dans le tick() à toutes les 1000ms
     ++this->m_seconds;
     if (this->m_seconds >= 60) {
-        this->m_seconds = 0;
+        this->m_seconds = DEFAULT;
         ++this->m_minutes;
         if (this->m_minutes >= 60) {
-            this->m_minutes = 0;
+            this->m_minutes = DEFAULT;
             ++this->m_hours;
             if (this->m_hours >= 24) {
-                this->m_hours = 0;
+                this->m_hours = DEFAULT;
                 syncWithNTP();
             }
         } 
@@ -54,9 +54,9 @@ String InternalClock::getInternalClockTime() {
 }
 
 void InternalClock::tick() {
-    uint64_t currentMillis = millis();
-    if (currentMillis - this->m_lastUpdate >= m_intervalUpdate) {
-        this->m_lastUpdate += m_intervalUpdate;
+    uint64_t actualTime = millis();
+    if (actualTime - this->m_lastUpdate >= this->m_intervalUpdate) {
         computeTime();
+        this->m_lastUpdate = actualTime;       
     }
 }
