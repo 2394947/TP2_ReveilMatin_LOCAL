@@ -5,8 +5,7 @@ AlarmClock::AlarmClock(
     InternalClock *p_internalClock
     )
       : m_display4Digits(p_display4Digits),
-        m_internalClock(p_internalClock),
-        m_isInAlarmDisplay(false) {
+        m_internalClock(p_internalClock) {
             this->createDefaultAlarms();
 }
 
@@ -40,8 +39,8 @@ void AlarmClock::createDefaultAlarms() {
 void AlarmClock::displayTime() {
     String time = this->m_internalClock->getInternalClockTime();
     int firstDigit = time.substring(0, 1).toInt();
-    if(firstDigit == 0){
-        firstDigit = ARRAY_NULL;
+    if(firstDigit == ARRAY_NULL){
+        firstDigit = 16;
     }
     int secondDigit = time.substring(1, 2).toInt();
     int thirdDigit = time.substring(2, 3).toInt();
@@ -51,14 +50,6 @@ void AlarmClock::displayTime() {
 
 Alarm* AlarmClock::getLastDisplayedAlarm() {
     return this->m_alarms[this->m_alarmsIndex];
-}
-
-void AlarmClock::setDisplayAlarmState(bool p_isInAlarmDisplay) {
-    this->m_isInAlarmDisplay = p_isInAlarmDisplay;
-} 
-
-bool AlarmClock::getDisplayAlarmState() {
-    return this->m_isInAlarmDisplay;
 }
 
 void AlarmClock::run() {

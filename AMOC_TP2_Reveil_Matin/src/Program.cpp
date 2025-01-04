@@ -10,7 +10,7 @@ Program::Program()
             DIO
             );
         Serial.begin(SERIAL_SPEED);
-        this->m_yellowLED = new LED(YELLOW_PIN);
+        this->m_yellowFlicker = new Flicker(YELLOW_PIN,INTERVAL_500,INTERVAL_500);
         this->m_redLED = new LED(RED_PIN);
         this->m_display4Digits = new Display4Digits(p_proxy);
         this->m_actionDisplayConnection = new ActionDisplayConnection(this->m_display4Digits);
@@ -32,7 +32,7 @@ Program::Program()
             );
         this->m_actionDisplayAlarms = new ActionDisplayAlarms(this->m_alarmClock);
         this->m_actionDisplayLEDs = new ActionDisplayLEDs(
-            this->m_yellowLED,
+            this->m_yellowFlicker,
             this->m_redLED,
             this->m_alarmClock
             );
@@ -56,4 +56,5 @@ void Program::loop() {
     this->m_alarmClock->run();
     this->m_buttonDisplayAlarms->tick();
     this->m_buttonActivateAlarm->tick();
+    this->m_yellowFlicker->tick();
 }
