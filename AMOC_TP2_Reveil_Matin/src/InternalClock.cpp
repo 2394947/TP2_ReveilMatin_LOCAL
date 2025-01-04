@@ -60,3 +60,10 @@ void InternalClock::tick() {
         this->m_lastUpdate = actualTime;       
     }
 }
+
+// void InternalClock::run() {
+//     while (true) { // boucle infinie pour faire rouler le tick()
+//         tick();
+//         vTaskDelay(pdMS_TO_TICKS(this->m_intervalUpdate)); 
+//     }
+// }

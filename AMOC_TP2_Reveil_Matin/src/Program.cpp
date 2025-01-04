@@ -50,6 +50,18 @@ Program::Program()
             );
 }
 
+// void Program::setupCore1Task() {
+//     xTaskCreatePinnedToCore(
+//         runInternalClockTask,
+//         "InternalClockTask",
+//         8192,
+//         this->m_internalClock,
+//         1, // priorité (1 à 5, 1 étant la plus haute)
+//         nullptr,
+//         1   // cœur 1
+//     );
+// }
+
 void Program::loop() {
     this->m_connection->tick();
     this->m_internalClock->tick();
@@ -57,3 +69,9 @@ void Program::loop() {
     this->m_buttonDisplayAlarms->tick();
     this->m_buttonActivateAlarm->tick();
 }
+
+// void Program::runInternalClockTask(void* parameter) {
+//     InternalClock* internalClock = static_cast<InternalClock*>(parameter);
+//     internalClock->run(); 
+//     vTaskDelete(nullptr); 
+// }

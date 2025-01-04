@@ -29,4 +29,6 @@ public:
     ActionDisplayConnection *m_actionDisplayConnection;
     Program();
     void loop();
+    // void setupCore1Task();
+    // void runInternalClockTask(void* parameter);
 };
