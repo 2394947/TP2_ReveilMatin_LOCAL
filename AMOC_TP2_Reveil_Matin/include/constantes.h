@@ -1,6 +1,7 @@
 #pragma once
 #include <Arduino.h>
 
+// Valeurs des pins
 #define CLK 25
 #define DIO 26
 #define RED_PIN   14                        
@@ -15,6 +16,7 @@
 #define UPDATE_INTERVAL 60000
 #define NTP_SERVER_REGION "north-america.pool.ntp.org"
 
+// Valeurs des index du tableau DIGITS_ARRAY
 #define DIGIT_0 0b00111111
 #define DIGIT_1 0b00000110
 #define DIGIT_2 0b01011011
@@ -31,41 +33,80 @@
 #define DIGIT_D 0b01011110
 #define DIGIT_E 0b01111001
 #define DIGIT_F 0b01110001
+// Valeurs 0 à F incluant un | logique pour ajouter le 7ième bit pour afficher le DP
+#define DIGIT_0_OR_DP DIGIT_0 | DIGIT_SEG_DP
+#define DIGIT_1_OR_DP DIGIT_1 | DIGIT_SEG_DP
+#define DIGIT_2_OR_DP DIGIT_2 | DIGIT_SEG_DP
+#define DIGIT_3_OR_DP DIGIT_3 | DIGIT_SEG_DP
+#define DIGIT_4_OR_DP DIGIT_4 | DIGIT_SEG_DP
+#define DIGIT_5_OR_DP DIGIT_5 | DIGIT_SEG_DP
+#define DIGIT_6_OR_DP DIGIT_6 | DIGIT_SEG_DP
+#define DIGIT_7_OR_DP DIGIT_7 | DIGIT_SEG_DP
+#define DIGIT_8_OR_DP DIGIT_8 | DIGIT_SEG_DP
+#define DIGIT_9_OR_DP DIGIT_9 | DIGIT_SEG_DP
+#define DIGIT_A_OR_DP DIGIT_A | DIGIT_SEG_DP
+#define DIGIT_B_OR_DP DIGIT_B | DIGIT_SEG_DP
+#define DIGIT_C_OR_DP DIGIT_C | DIGIT_SEG_DP
+#define DIGIT_D_OR_DP DIGIT_D | DIGIT_SEG_DP
+#define DIGIT_E_OR_DP DIGIT_E | DIGIT_SEG_DP
+#define DIGIT_F_OR_DP DIGIT_F | DIGIT_SEG_DP
 #define DIGIT_SEG_D 0b00001000
 #define DIGIT_SEG_G 0b01000000
 #define DIGIT_SEG_A 0b00000001
 #define DIGIT_SEG_DP 0b10000000
 #define DIGIT_NULL 0b00000000
 
-#define TAB_0 0
-#define TAB_1 1
-#define TAB_2 2
-#define TAB_3 3
-#define TAB_4 4
-#define TAB_5 5
-#define TAB_6 6
-#define TAB_7 7
-#define TAB_8 8
-#define TAB_9 9
-#define TAB_A 10
-#define TAB_B 11
-#define TAB_C 12
-#define TAB_D 13
-#define TAB_E 14
-#define TAB_F 15
-#define TAB_SEG_D 16
-#define TAB_SEG_G 17
-#define TAB_SEG_A 18
-#define TAB_SEG_DP 19
-#define TAB_NULL 20
+// Références des # des index du tableau DIGITS_ARRAY
+#define ARRAY_0 0
+#define ARRAY_1 1
+#define ARRAY_2 2
+#define ARRAY_3 3
+#define ARRAY_4 4
+#define ARRAY_5 5
+#define ARRAY_6 6
+#define ARRAY_7 7
+#define ARRAY_8 8
+#define ARRAY_9 9
+#define ARRAY_A 10
+#define ARRAY_B 11
+#define ARRAY_C 12
+#define ARRAY_D 13
+#define ARRAY_E 14
+#define ARRAY_F 15
+#define ARRAY_0_OR_DP 16
+#define ARRAY_1_OR_DP 17
+#define ARRAY_2_OR_DP 18
+#define ARRAY_3_OR_DP 19
+#define ARRAY_4_OR_DP 20 
+#define ARRAY_5_OR_DP 21
+#define ARRAY_6_OR_DP 22
+#define ARRAY_7_OR_DP 23
+#define ARRAY_8_OR_DP 24
+#define ARRAY_9_OR_DP 25
+#define ARRAY_A_OR_DP 26
+#define ARRAY_B_OR_DP 27
+#define ARRAY_C_OR_DP 28
+#define ARRAY_D_OR_DP 29
+#define ARRAY_E_OR_DP 30
+#define ARRAY_F_OR_DP 31
+#define ARRAY_SEG_D 32
+#define ARRAY_SEG_G 33
+#define ARRAY_SEG_A 34
+#define ARRAY_SEG_DP 35
+#define ARRAY_NULL 36
 
-const uint8_t m_entiersTab[21] = {
-        DIGIT_0, DIGIT_1, DIGIT_2, DIGIT_3,
-        DIGIT_4, DIGIT_5, DIGIT_6, DIGIT_7,
-        DIGIT_8, DIGIT_9, DIGIT_A, DIGIT_B,
-        DIGIT_C, DIGIT_D, DIGIT_E, DIGIT_F,
-        DIGIT_SEG_D, DIGIT_SEG_G, DIGIT_SEG_A, 
-        DIGIT_SEG_DP, DIGIT_NULL };
+// Saut entre les valeurs std et les valeurs avec DP
+#define OR_DP 16
+
+// Tableau contenant les valeurs utilisées pour l'affichage de Display4Digits, plus qu'il n'en faut, peut être utilisé à d'autres fins
+const uint8_t DIGITS_ARRAY[ARRAY_NULL + 1] = {
+        DIGIT_0, DIGIT_1, DIGIT_2, DIGIT_3, DIGIT_4, DIGIT_5, DIGIT_6, DIGIT_7,
+        DIGIT_8, DIGIT_9, DIGIT_A, DIGIT_B, DIGIT_C, DIGIT_D, DIGIT_E, DIGIT_F,
+        DIGIT_0_OR_DP, DIGIT_1_OR_DP, DIGIT_2_OR_DP, DIGIT_3_OR_DP, DIGIT_4_OR_DP,
+        DIGIT_5_OR_DP, DIGIT_6_OR_DP, DIGIT_7_OR_DP, DIGIT_8_OR_DP, DIGIT_9_OR_DP,
+        DIGIT_A_OR_DP, DIGIT_B_OR_DP, DIGIT_C_OR_DP, DIGIT_D_OR_DP, DIGIT_E_OR_DP,
+        DIGIT_F_OR_DP, DIGIT_SEG_D, DIGIT_SEG_G, DIGIT_SEG_A, DIGIT_SEG_DP, DIGIT_NULL 
+        };
 
 #define SERIAL_SPEED 115200                 // vitesse Serial pour ESP32
 
@@ -78,4 +119,4 @@ const uint8_t m_entiersTab[21] = {
 #define INTERVAL_50 50                      // 50 millis secondes
 #define INTERVAL_40 40                      // 40 millis secondes
 #define INTERVAL_30 30                      // 30 millis secondes
-#define DEFAULT 0
+#define DEFAULT 0                           // Hey ben... un simple "0"!

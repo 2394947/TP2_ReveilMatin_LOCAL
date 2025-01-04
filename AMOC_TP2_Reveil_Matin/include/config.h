@@ -4,7 +4,7 @@
 #define WIFI_SSID_1 "SM-A520W3658"          // Réseau cell William "chalet"
 #define WIFI_PASSWORD_1 "jqfv5091"
 
-#define WIFI_SSID_2 "jennino2.4"      // Réseau chez Jenn
+#define WIFI_SSID_2 "jennino2.4"            // Réseau chez Jenn
 #define WIFI_PASSWORD_2 "willino.com"
 
 #define WIFI_SSID_3 "TELUS5C4F"             // Réseau chez William
