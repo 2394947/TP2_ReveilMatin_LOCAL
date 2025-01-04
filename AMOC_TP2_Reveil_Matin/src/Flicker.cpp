@@ -45,3 +45,4 @@ void Flicker::tick() {
   void Flicker::setFlickingState(bool p_isFlicking) {
     this->m_isFlicking = p_isFlicking;
   }
+  

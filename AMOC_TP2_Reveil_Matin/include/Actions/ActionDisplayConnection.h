@@ -12,3 +12,4 @@ public:
     ActionDisplayConnection(Display4Digits* p_display4Digits);
     void execute() override;
 };
+

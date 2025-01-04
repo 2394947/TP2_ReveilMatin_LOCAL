@@ -11,3 +11,4 @@ Button::Button(uint8_t p_pin,
       m_lastButtonStableState(HIGH) {
         pinMode(this->m_pin,INPUT);
     }
+    
