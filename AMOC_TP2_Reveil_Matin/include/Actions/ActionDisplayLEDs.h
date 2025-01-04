@@ -1,15 +1,16 @@
 #pragma once
 #include "Action.h"
 #include "LED.h"
+#include "Flicker.h"
 #include "AlarmClock.h"
 
 class ActionDisplayLEDs : Action {
 private:
-    LED* m_yellowLED;
+    Flicker* m_yellowFlicker;
     LED* m_redLED;
     AlarmClock* m_alarmClock;
 public:
-    ActionDisplayLEDs(LED* p_yellowLED,
+    ActionDisplayLEDs(Flicker* p_yellowFlicker,
                       LED* p_redLED,
                       AlarmClock* p_alarmClock);
     void execute() override;

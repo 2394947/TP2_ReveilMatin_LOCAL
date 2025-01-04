@@ -1,6 +1,7 @@
 #include "LED.h"
 #include "Connection.h"
 #include "NTPClock.h"
+#include "Flicker.h"
 #include "InternalClock.h"
 #include "Actions/ActionDisplayAlarms.h"
 #include "Actions/ActionDisplayLEDs.h"
@@ -14,7 +15,7 @@
 class Program
 {
 public:
-    LED* m_yellowLED;
+    Flicker* m_yellowFlicker;
     LED* m_redLED;
     Display4Digits *m_display4Digits;
     Connection *m_connection;
