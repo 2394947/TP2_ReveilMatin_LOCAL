@@ -17,7 +17,7 @@ void AlarmClock::showAvailableAlarms() {
     uint8_t thirdDigit = alarm->getMinutes() / 10;
     uint8_t fourthDigit = alarm->getMinutes() % 10;
 
-    this->m_display4Digits->display(firstDigit, secondDigit | TAB_SEG_DP, thirdDigit, fourthDigit);
+    this->m_display4Digits->display(firstDigit, secondDigit + OR_DP, thirdDigit, fourthDigit);
     this->nextAlarm();
 }
 
@@ -40,13 +40,13 @@ void AlarmClock::createDefaultAlarms() {
 void AlarmClock::displayTime() {
     String time = this->m_internalClock->getInternalClockTime();
     int firstDigit = time.substring(0, 1).toInt();
-    if(firstDigit == TAB_NULL){
-        firstDigit = 16;
+    if(firstDigit == 0){
+        firstDigit = ARRAY_NULL;
     }
     int secondDigit = time.substring(1, 2).toInt();
     int thirdDigit = time.substring(2, 3).toInt();
     int fourthDigit = time.substring(3, 4).toInt();
-    this->m_display4Digits->display(firstDigit,secondDigit,thirdDigit,fourthDigit);
+    this->m_display4Digits->display(firstDigit, secondDigit + OR_DP, thirdDigit, fourthDigit);
 }
 
 Alarm* AlarmClock::getLastDisplayedAlarm() {
