@@ -55,4 +55,3 @@ Alarm* AlarmClock::getLastDisplayedAlarm() {
 void AlarmClock::run() {
     this->displayTime();
 }
-

@@ -5,17 +5,8 @@ ButtonActivateAlarm::ButtonActivateAlarm(
     uint8_t p_actionDelayMS,
     ActionActivateAlarm* p_actionActivateAlarm
 )
-    : m_pin(p_pin),
-      m_actionDelayMS(p_actionDelayMS),
-      m_actionActivateAlarm(p_actionActivateAlarm),
-      m_buttonState(HIGH),
-      m_actualTime(DEFAULT),
-      m_lastTimeChange(DEFAULT),
-      m_lastButtonState(HIGH),
-      m_lastButtonStableState(HIGH) {
-        pinMode(this->m_pin,INPUT);
-}
-
+    : Button(p_pin, p_actionDelayMS),
+      m_actionActivateAlarm(p_actionActivateAlarm) { ; }
 
 void ButtonActivateAlarm::tick() {
     this->m_buttonState = digitalRead(this->m_pin);

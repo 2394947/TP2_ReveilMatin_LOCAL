@@ -4,8 +4,9 @@
 #include "Actions/ActionDisplayAlarms.h"
 #include "Actions/ActionDisplayLEDs.h"
 #include "constantes.h"
+#include "../Task.h"
 
-class ButtonDisplayAvailableAlarm : Button {
+class ButtonDisplayAvailableAlarm : public Button, Task {
 private:
     uint8_t m_pin;
     uint8_t m_buttonState;
