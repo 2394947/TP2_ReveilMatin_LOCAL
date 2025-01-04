@@ -48,9 +48,10 @@ void InternalClock::syncWithNTP() {
 }        
 
 String InternalClock::getInternalClockTime() {
-    char HHMM[5];
-    snprintf(HHMM, sizeof(HHMM), "%02u%02u", this->m_hours, this->m_minutes);
-    return String(HHMM);  
+    String HHMM = String(this->m_hours) + 
+                  (this->m_minutes < 10 ? "0" : "") + 
+                  String(this->m_minutes);
+    return HHMM;  
 }
 
 void InternalClock::tick() {
