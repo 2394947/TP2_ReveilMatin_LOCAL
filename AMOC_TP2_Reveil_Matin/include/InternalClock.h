@@ -12,7 +12,7 @@ private:
     uint8_t m_hours;
     uint8_t m_minutes;
     uint8_t m_seconds;
-    uint16_t m_lastUpdate;
+    uint64_t m_lastUpdate;
     uint16_t m_intervalUpdate;
     void computeTime();
     void syncWithNTP();
