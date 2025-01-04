@@ -3,8 +3,9 @@
 #include "Button.h"
 #include "Actions/ActionActivateAlarm.h"
 #include "constantes.h"
+#include "../Task.h"
 
-class ButtonActivateAlarm : Button {
+class ButtonActivateAlarm : Button , Task{
 private:
     uint8_t m_pin;
     uint8_t m_buttonState;
