@@ -18,10 +18,10 @@ void Display4DigitsProxyTM1637::display(
     uint8_t p_d3,
     uint8_t p_d4
 ) {
-    uint8_t segment[4] = {m_entiersTab[p_d1], m_entiersTab[p_d2], m_entiersTab[p_d3], m_entiersTab[p_d4]};
+    uint8_t segment[4] = {DIGITS_ARRAY[p_d1], DIGITS_ARRAY[p_d2], DIGITS_ARRAY[p_d3], DIGITS_ARRAY[p_d4]};
     m_tm1637->setSegments(segment);
 }
 void Display4DigitsProxyTM1637::displayInteger( uint8_t p_valeur) {
-    uint8_t segment[4] = {m_entiersTab[TAB_NULL], m_entiersTab[TAB_NULL], m_entiersTab[TAB_NULL], m_entiersTab[p_valeur]};
+    uint8_t segment[4] = {DIGITS_ARRAY[ARRAY_NULL], DIGITS_ARRAY[ARRAY_NULL], DIGITS_ARRAY[ARRAY_NULL], DIGITS_ARRAY[p_valeur]};
     m_tm1637->setSegments(segment);
 }
