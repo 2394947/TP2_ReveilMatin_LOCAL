@@ -2,6 +2,9 @@
 #include <NTPClient.h>
 #include <WiFiUdp.h>
 
+// size_t melodyCount = 0;
+// size_t currentMelodyIndex = 0;
+
 Program::Program()
   : m_connection(nullptr),
     m_ntpClock(nullptr) {
@@ -49,15 +52,36 @@ Program::Program()
             this->m_actionActivateAlarm
             );
         setupCore1Task();
+
+        // //test mélodie
+        // m_buzzer = new Buzzer(BUZZER_PIN);
+        // m_tetrisMelody = new Tetris();
+        // m_doomMelody = new Doom();
+        // m_superMarioBrosMelody = new SuperMarioBros();
+        
+        // m_melodies[0] = m_tetrisMelody->getMelody();
+        // m_melodies[1] = m_doomMelody->getMelody();
+        // m_melodies[2] = m_superMarioBrosMelody->getMelody();
+
+        // m_melodyLengths[0] = m_tetrisMelody->getMelodyLength();
+        // m_melodyLengths[1] = m_doomMelody->getMelodyLength();
+        // m_melodyLengths[2] = m_superMarioBrosMelody->getMelodyLength();
+
+        // melodyCount = sizeof(m_melodies) / sizeof(m_melodies[0]);
+        // currentMelodyIndex = 0;
+
+        // // Test mélodie initiale
+        // m_buzzer->playMelody(m_melodies[currentMelodyIndex], m_melodyLengths[currentMelodyIndex]);
+        // // test mélodie
 }
 
 /*************************************************************************************************************************************************/
 
-// Lors du cours où vous nous avez présentés l'esp32, vous avez parlés des avantage de ce MCU dont le fait qu'il contiend 2 coeurs!
-// Vous nous aveiez aussi expliqué que cette avantage était parfait pour faire tourner des horloge internes sans intéruption et 
-// ralentissement causé par d'autres taches et calcule sur les coeurs. Nous avont donc profité de cette exercice pour expérimenter
+// Lors du cours où vous nous avez présentés l'esp32, vous avez parlés des avantage de ce MCU dont le fait qu'il contient 2 coeurs!
+// Vous nous aviez aussi expliqués que cette avantage était parfait pour faire tourner des horloges internes sans interruption et 
+// ralentissement causé par d'autres taches et calcules sur les coeurs. Nous avons donc profités de cette exercice pour expérimenter
 // et exploiter cette avantage puisque nous avons décidés d'inclure une classe qui calcule l'heure. Le but étant d'éviter de faire de 
-// multiple requêtes NTP pour conserver l'heure. Même si nous faison une requête NTP tout les jours à minuit pour recalibrer l'heure,
+// multiple requêtes NTP pour conserver l'heure. Même si nous faisons une requête NTP tout les jours à minuit pour recalibrer l'heure,
 // le fait de rouler la classe InternClock sur le coeur1 nous permet de faire l'essai dans un but pédagogique.
 
 // Références https://github.com/RalphBacon/ESP32-Dual-Core-Programming/blob/master/ESP32_DUALCORE_BLINK.ino  Lignes 41 à 48
@@ -74,7 +98,7 @@ void Program::setupCore1Task() {
         1,                                                                        // Priorité (1 à 5)
         nullptr,                                                                  // ID de la tâche (on le garde nul pour gérer auto)
         1                                                                         // Coeur 1
-    );
+    );  
 }
 /*************************************************************************************************************************************************/
 
@@ -85,4 +109,11 @@ void Program::loop() {
     this->m_buttonActivateAlarm->tick();
     this->m_yellowFlicker->tick();
     //this->m_internalClock->tick(); // On n'a plus à appeler le tick de InternalClock dans la loop. le tick() est pris en charge par le coeur1 qui appel run() dans sa loop.
+
+    // m_buzzer->tick();
+
+    // if (!m_buzzer->isPlaying()) {
+    //     currentMelodyIndex = (currentMelodyIndex + 1) % melodyCount;
+    //     m_buzzer->playMelody(m_melodies[currentMelodyIndex], m_melodyLengths[currentMelodyIndex]);
+    // }     
 }

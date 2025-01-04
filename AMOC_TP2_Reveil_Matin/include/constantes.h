@@ -6,7 +6,7 @@
 #define DIO 26
 #define RED_PIN   14                        
 #define YELLOW_PIN 12
-#define BUZZER_PIN 13                        
+#define BUZZER_PIN 5                        
 #define BUTTON1_PIN 17                         
 #define BUTTON2_PIN 16                       
 #define BUTTON3_PIN 27                         
@@ -120,3 +120,10 @@ const uint8_t DIGITS_ARRAY[ARRAY_NULL + 1] = {
 #define INTERVAL_40 40                      // 40 millis secondes
 #define INTERVAL_30 30                      // 30 millis secondes
 #define DEFAULT 0                           // Hey ben... un simple "0"!
+
+// Constantes pour la lectures des mélodies, valeurs des variables isolé de la source:
+// https://github.com/robsoncouto/arduino-songs/tree/master
+#define TEMPO 195                           // Vitesse par défaut de la mélodie
+#define WHOLE_NOTE ((60000 * 4) / TEMPO)    // Durée d'une note entière en ms
+#define DIVIDER DEFAULT                     // Valeur par défaut du diviseur 
+#define NOTE_DURATION DEFAULT               // Durée par défaut d'une note
