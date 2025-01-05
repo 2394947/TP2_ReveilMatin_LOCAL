@@ -14,11 +14,11 @@ class AlarmWebServer {
   WebServer* m_webServer;
   AlarmManager* m_alarmManager;       // Gere le fichier des alarmes : ecriture,lecture
 
-  void displayRoot(); // Je s'appelle groot xD
+  void displayRoot(); // Je s'appelle root xD
   void ressourcesNotFound(String const& p_fileName);
   void initialiseRequestRoutes();
   void getAlarms();
-  void addOrdUpdateAlarm();
+  void addAlarm();
   void deleteAlarm();
-  void toggleAlarmState();
+  void modifyAlarm();
 };

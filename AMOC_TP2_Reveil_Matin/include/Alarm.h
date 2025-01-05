@@ -4,16 +4,13 @@
 class Alarm
 {
 private:
-    uint8_t m_hours;
-    uint8_t m_minutes;
+    String m_time;
     bool m_isActive;
-
 public:
-    Alarm(uint8_t p_hours, uint8_t p_minutes);
+    Alarm(String p_time, bool p_isActive);
 
     void activate();
     void deactivate();
     bool isActivated();
-    uint8_t getHours();
-    uint8_t getMinutes();
+    String getTime();
 };

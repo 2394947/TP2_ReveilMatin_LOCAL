@@ -15,7 +15,7 @@
 #define BUTTON2_PIN 16                       
 #define BUTTON3_PIN 27                         
 
-#define DEFAULT_NB_ALARMS 5
+#define MAX_NB_ALARMS 10
 #define TIMEZONE -5 * 3600
 #define UPDATE_INTERVAL 60000
 #define NTP_SERVER_REGION "north-america.pool.ntp.org"
