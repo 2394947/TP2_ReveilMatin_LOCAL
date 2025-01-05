@@ -15,12 +15,6 @@ class AlarmWebServer {
   AlarmManager* m_alarmManager;       // Gere le fichier des alarmes : ecriture,lecture
 
   void displayRoot(); // Je s'appelle groot xD
-
-  void addStaticFiles(String const& p_beginningFileName);
-  void addStaticFiles(String const& p_beginningFileName,
-                                String const& p_actualRepository,
-                                File& p_file);
-                                
   void ressourcesNotFound(String const& p_fileName);
   void initialiseRequestRoutes();
   void getAlarms();

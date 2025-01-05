@@ -7,7 +7,7 @@ private:
     int m_timeTurnedOn;
     int m_timeTurnedOff;
     unsigned long m_actionTimeMS;
-    uint32_t m_lastTimeactionDecrementedMS;
+    uint32_t m_lastTimeActionDecrementedMS;
     int m_cycleStep;
     bool m_isFlicking;
 
