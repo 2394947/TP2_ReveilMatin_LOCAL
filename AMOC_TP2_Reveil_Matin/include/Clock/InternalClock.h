@@ -3,7 +3,6 @@
 #include "NTPClock.h"
 #include "constantes.h"
 
-
 class InternalClock {
 private:
     NTPClock* m_NTPClock;
