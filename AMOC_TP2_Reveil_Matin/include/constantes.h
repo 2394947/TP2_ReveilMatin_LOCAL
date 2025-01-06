@@ -16,7 +16,6 @@
 #define BUTTON3_PIN 27                         
 
 #define NB_MELODIES 3
-#define DEFAULT_NB_ALARMS 5
 #define MAX_NB_ALARMS 10
 #define TIMEZONE -5 * 3600
 #define UPDATE_INTERVAL 60000
@@ -121,6 +120,8 @@ const uint8_t DIGITS_ARRAY[ARRAY_NULL + 1] = {
 #define INTERVAL_3 3000                     // 3 secondes
 #define INTERVAL_2 2000                     // 2 secondes
 #define INTERVAL_1 1000                     // 1 secondes
+#define INTERVAL_1M 60000                   // 1 minutes
+#define INTERVAL_3M INTERVAL_1M * 3        // 3 minutes
 #define INTERVAL_500 500                    // 500 millis secondes
 #define INTERVAL_50 50                      // 50 millis secondes
 #define INTERVAL_40 40                      // 40 millis secondes
