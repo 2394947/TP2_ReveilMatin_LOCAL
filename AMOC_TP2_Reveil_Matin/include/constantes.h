@@ -16,7 +16,6 @@
 #define BUTTON3_PIN 27                         
 
 #define NB_MELODIES 3
-#define DEFAULT_NB_ALARMS 5
 #define MAX_NB_ALARMS 10
 #define TIMEZONE -5 * 3600
 #define UPDATE_INTERVAL 60000
