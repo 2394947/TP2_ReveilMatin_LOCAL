@@ -46,7 +46,7 @@ void AlarmClockController::deserializeAlarms(String p_json) {
       }
       for(uint8_t index; index<MAX_NB_ALARMS;index++) {
         if(alarmsFromJson[index].time != this->m_alarms[index].time)    // alarmsFromJson     m_alarms
-      }                                                                       12:30            08:20
+      }                                                                 //     12:30            08:20
     }
 }
 
