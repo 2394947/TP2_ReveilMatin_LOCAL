@@ -5,9 +5,5 @@ ActionActivateAlarm::ActionActivateAlarm(AlarmClock* p_alarmClock) : m_alarmCloc
 }
 
 void ActionActivateAlarm::execute() {
-    if(this->m_alarmClock->getLastDisplayedAlarm()->isActivated()){
-        this->m_alarmClock->getLastDisplayedAlarm()->deactivate();
-    }else {
-         this->m_alarmClock->getLastDisplayedAlarm()->activate();
-    }
+  this->m_alarmClock->toggleAlarmState();
 }

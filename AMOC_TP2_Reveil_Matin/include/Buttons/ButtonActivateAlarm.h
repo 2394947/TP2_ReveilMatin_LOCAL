@@ -21,6 +21,6 @@ public:
         uint8_t p_pin,
         uint8_t p_actionDelayMS,
         ActionActivateAlarm* p_actionActivateAlarm
-    );
+        );
     void tick() override;
 };

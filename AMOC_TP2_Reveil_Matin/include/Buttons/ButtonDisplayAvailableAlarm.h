@@ -24,6 +24,6 @@ public:
         uint8_t p_actionDelayMS,
         ActionDisplayAlarms* p_actionDisplayAlarms,
         ActionDisplayLEDs* p_actionDisplayLEDs
-    );
+        );
     void tick() override;
 };

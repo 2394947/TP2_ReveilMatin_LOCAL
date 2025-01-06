@@ -15,10 +15,13 @@ private:
     void displayTime(String p_time);  
     void displayClockTime();                                                   
 public:
-    AlarmClock(AlarmClockController* p_alarmClockController,
-               Display4Digits* p_display4Digits,
-               InternalClock* p_internalClock);                                
+    AlarmClock(
+        AlarmClockController* p_alarmClockController,
+        Display4Digits* p_display4Digits,
+        InternalClock* p_internalClock
+        );                                
     Alarm* getLastDisplayedAlarm();
-    void displayAvailableAlarms();                                              
+    void displayAvailableAlarms(); 
+    void toggleAlarmState();                                            
     void run();                                                                
 };

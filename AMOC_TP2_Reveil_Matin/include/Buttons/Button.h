@@ -12,6 +12,8 @@ private:
     uint64_t m_lastTimeChange;
     uint16_t m_actionDelayMS;
 public:
-    Button(uint8_t p_pin,
-           uint16_t p_actionDelayMS);
+    Button(
+        uint8_t p_pin,
+        uint16_t p_actionDelayMS
+        );
 };

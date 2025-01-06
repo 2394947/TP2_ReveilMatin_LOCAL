@@ -9,6 +9,10 @@ private:
     NTPClient m_timeClient;
 
 public:
-    NTPClock(const char *p_serverRegion, long p_timezone, unsigned long p_updateInterval);
+    NTPClock(
+        const char *p_serverRegion,
+        long p_timezone, 
+        unsigned long p_updateInterval
+        );
     NTPClient getTime();
 };

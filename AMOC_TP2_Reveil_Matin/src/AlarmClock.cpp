@@ -44,7 +44,17 @@ void AlarmClock::displayTime(String p_time) {
 }
 
 Alarm* AlarmClock::getLastDisplayedAlarm() {
-    return this->m_alarms[this->m_alarmsIndex];
+    return this->m_alarmClockController->m_alarms[this->m_alarmsIndex];
+}
+
+void AlarmClock::toggleAlarmState() {
+    Alarm* alarmToToggle = this->m_alarmClockController->m_alarms[this->m_alarmsIndex];
+    bool isAlarmActive = alarmToToggle->isActivated(); 
+    if(isAlarmActive) {
+        this->m_alarmClockController->unsetAlarm(alarmToToggle->getTime());
+    } else {
+        this->m_alarmClockController->setAlarm(alarmToToggle->getTime());
+    }
 }
 
 void AlarmClock::run() {
