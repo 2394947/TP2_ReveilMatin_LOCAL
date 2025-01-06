@@ -60,9 +60,9 @@ void AlarmWebServer::ressourcesNotFound(const String& p_ressourceName) {
 
 void AlarmWebServer::initialiseRequestRoutes() {
   this->m_webServer->on("/alarms", HTTP_GET,[this]() {this->getAlarms(); });
-  this->m_webServer->on("/alarms", HTTP_POST,[this]() {this->addOrdUpdateAlarm(); });
+  this->m_webServer->on("/alarms", HTTP_POST,[this]() {this->addAlarm(); });
   this->m_webServer->on("/alarms/{id}",HTTP_DELETE,[this]() {this->deleteAlarm(); });
-  this->m_webServer->on("/alarms/{id}", HTTP_PATCH,[this]() {this->toggleAlarmState(); }); // Patch permet de faire un changement partiel de l'alarme (actif/inactif) sans l'ecraser:  https://developer.mozilla.org/fr/docs/Web/HTTP/Methods/PATCH
+  this->m_webServer->on("/alarms/{id}", HTTP_PATCH,[this]() {this->modifyAlarm(); }); // Patch permet de faire un changement partiel de l'alarme (actif/inactif) sans l'ecraser:  https://developer.mozilla.org/fr/docs/Web/HTTP/Methods/PATCH
   this->m_webServer->onNotFound([this]() { this->ressourcesNotFound(this->m_webServer->uri()); });
 }
 
@@ -73,7 +73,7 @@ void AlarmWebServer::getAlarms() {
   this->m_webServer->send(200, "application/json", result);
 }
 
-void AlarmWebServer::addOrdUpdateAlarm() {
+void AlarmWebServer::addAlarm() {
   String body = this->m_webServer->arg("plain");
 
   if(body.isEmpty()){
@@ -98,7 +98,7 @@ void AlarmWebServer::deleteAlarm() {
   // Todo
 }
 
-void AlarmWebServer::toggleAlarmState() {
+void AlarmWebServer::modifyAlarm() {
   // Todo
 }
 

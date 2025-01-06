@@ -12,7 +12,11 @@ private:
     bool m_isFlicking;
 
     public:
-    Flicker(const uint8_t p_pin,const int& p_timeTurnedOn, const int& p_timeTurnedOff);
+    Flicker(
+        const uint8_t p_pin,
+        const int& p_timeTurnedOn, 
+        const int& p_timeTurnedOff
+        );
     void tick();
     void setFlickingState(bool p_isFlicking);
     enum CycleStep { CYCLE_STEP_ON = 0, CYCLE_STEP_OFF = 1};

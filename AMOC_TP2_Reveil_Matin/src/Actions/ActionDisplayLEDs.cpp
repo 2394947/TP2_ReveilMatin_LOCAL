@@ -12,7 +12,7 @@ ActionDisplayLEDs::ActionDisplayLEDs(Flicker* p_yellowFlicker,
 void ActionDisplayLEDs::execute() {
     this->m_redLED->shut();
     this->m_yellowFlicker->setFlickingState(true);
-    if(this->m_alarmClock->getLastDisplayedAlarm()->isActivated()) {
+    if(this->m_alarmClock->getLastDisplayedAlarm()->isActivated()) {   // A revoir car je crois que la logique ne fonctionnera pas.
         this->m_redLED->light();
     }
 }

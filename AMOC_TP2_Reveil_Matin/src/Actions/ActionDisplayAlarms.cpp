@@ -5,5 +5,5 @@ ActionDisplayAlarms::ActionDisplayAlarms(AlarmClock* p_alarmClock) : m_alarmCloc
 }
 
 void ActionDisplayAlarms::execute() {
-    this->m_alarmClock->showAvailableAlarms();
+    this->m_alarmClock->displayAvailableAlarms();
 }

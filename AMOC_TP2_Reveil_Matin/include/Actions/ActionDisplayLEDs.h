@@ -10,8 +10,10 @@ private:
     LED* m_redLED;
     AlarmClock* m_alarmClock;
 public:
-    ActionDisplayLEDs(Flicker* p_yellowFlicker,
-                      LED* p_redLED,
-                      AlarmClock* p_alarmClock);
+    ActionDisplayLEDs(
+        Flicker* p_yellowFlicker,
+        LED* p_redLED,
+        AlarmClock* p_alarmClock
+        );
     void execute() override;
 };
