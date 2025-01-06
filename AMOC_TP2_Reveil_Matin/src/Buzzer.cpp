@@ -2,17 +2,17 @@
 
 Buzzer::Buzzer(uint8_t pin) 
   : m_pin(pin), 
-  m_currentNoteIndex(DEFAULT), 
-  m_isPlaying(false), 
-  m_lastUpdateTime(DEFAULT) {
-    pinMode(m_pin, OUTPUT);
+    m_currentNoteIndex(DEFAULT), 
+    m_isPlaying(false), 
+    m_lastUpdateTime(DEFAULT) {
+        pinMode(m_pin, OUTPUT);
 }
 
 // Source:
 // https://github.com/robsoncouto/arduino-songs/tree/master
 // Voir aussi fichier TempCodeAUtiliserPourJouerMelodies dans le répertoire 
 // include/Melody pour voir la version impérative du code de la source
-void Buzzer::playMelody(const int16_t* melodyArray, size_t length) {
+void Buzzer::playMelody(int16_t* melodyArray, size_t length) {
     m_melody = melodyArray;
     m_melodyLength = length;
     m_currentNoteIndex = 0;
