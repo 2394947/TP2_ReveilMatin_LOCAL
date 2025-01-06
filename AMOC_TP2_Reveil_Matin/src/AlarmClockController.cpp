@@ -62,8 +62,23 @@ bool AlarmClockController::doesAlarmExists(String p_time) {
     return false;
 }
 
+uint8_t AlarmClockController::findAlarm(String p_time) {
+    uint8_t arrayLength = sizeof(this->m_alarms) / sizeof(this->m_alarms[0]);
+    uint8_t indexOfAlarm = 0;
+
+    for(uint8_t index ; index < arrayLength; index++) {
+        if(this->m_alarms[index]->getTime() == p_time) {
+            indexOfAlarm = index;
+        }
+    }
+
+    return indexOfAlarm;
+}
+
 void AlarmClockController::setAlarm(String p_time) {
     bool alarmExists = this->doesAlarmExists(p_time);
+    uint8_t alarmIndex = this->findAlarm(String p_time);
+    
     String url = alarmExists ? this->m_urlBase + ALARM_FILE : this->m_urlBase + ALARM_FILE + "/" + p_time;
 
     HTTPClient http;
@@ -78,11 +93,12 @@ void AlarmClockController::setAlarm(String p_time) {
         Serial.println("Erreur PUT pour activer, code : " + String(resultCode));
     }
     http.end();
+    this->m_alarms[alarmIndex]->setAlarmMelody();
 } 
 
 void AlarmClockController::unsetAlarm(String p_time) {
     String url = this->m_urlBase + ALARM_FILE + "/" + p_time;
-
+    uint8_t alarmIndex = this->findAlarm(String p_time);
     HTTPClient http;
     http.begin(url);
     http.addHeader("content-type", "application/json")
@@ -94,7 +110,8 @@ void AlarmClockController::unsetAlarm(String p_time) {
     else {
         Serial.println("Erreur PUT pour désactiver, code : " + String(resultCode));
     }
-    http.end();     
+    http.end();  
+    this->m_alarms[alarmIndex]->setAlarmMelody();   
 }
 
 void AlarmClockController::deleteAlarm(String p_time) {

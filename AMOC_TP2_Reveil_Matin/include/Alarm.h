@@ -1,7 +1,7 @@
 #pragma once
 #include <Arduino.h>
 #include "Buzzer.h"
-#include "Melody/Melody.h"
+#include "AlarmMelodies.h"
 
 class Alarm
 {
@@ -9,7 +9,7 @@ private:
     String m_time;
     bool m_isActive;
     Buzzer* m_buzzer;
-    Melody* m_melody;
+    AlarmMelodies* m_alarmMelodies;
 public:
     Alarm(
         String p_time, 
@@ -17,6 +17,6 @@ public:
         Buzzer* p_buzzer
         );
     bool isActivated();
-    void createAlarmMelody();
+    void setAlarmMelody();
     String getTime();
 };

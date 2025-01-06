@@ -1,8 +1,8 @@
 #include "AlarmMelodies.h"
 
 AlarmMelodies::AlarmMelodies(
-    uint16_t p_delay1,
-    uint16_t p_delay2,
+    uint64_t p_delay1,
+    uint64_t p_delay2,
     Buzzer* p_buzzer
     )
       : m_isAlarmActive(false),
@@ -68,7 +68,7 @@ void AlarmMelodies::tick() {
     if (this->m_isAlarmActive && this->m_nbSnoozes == DEFAULT) {
         playMelody();
     } else {
-        uint16_t delay = (this->m_nbSnoozes == 1) ? this->m_delay1 : this->m_delay2;
+        uint64_t delay = (this->m_nbSnoozes == 1) ? this->m_delay1 : this->m_delay2;
 
         if (actualTime - this->m_lastUpdate >= delay) {
             this->m_lastUpdate = actualTime;

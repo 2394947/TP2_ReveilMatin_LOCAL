@@ -91,15 +91,12 @@ void AlarmWebServer::addAlarm() {
   }
 }
 
-  // Pour faire ces methodes, il faut etre en mesure de manipuler les id des alarmes. je crois quil
-  // faudra dabord ajouter la logique de lactionneur dans AlarmManager avant.
-
 void AlarmWebServer::deleteAlarm() {
-  // Todo
+  
 }
 
 void AlarmWebServer::modifyAlarm() {
-  // Todo
+  
 }
 
 

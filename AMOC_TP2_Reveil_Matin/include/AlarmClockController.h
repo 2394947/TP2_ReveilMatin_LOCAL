@@ -14,6 +14,7 @@ private:
     uint16_t m_intervalUpdate;    
     void deserializeAlarms(String p_jsonAlarms);
     bool doesAlarmExists(String p_time);
+    uint8_t findAlarm(String p_time);
 public:
     Alarm* m_alarms[MAX_NB_ALARMS];
     AlarmClockController(
