@@ -10,7 +10,11 @@ Program::Program()
             DIO
             );
         Serial.begin(SERIAL_SPEED);
-        this->m_yellowFlicker = new Flicker(YELLOW_PIN,INTERVAL_500,INTERVAL_500);
+        this->m_yellowFlicker = new Flicker(
+            YELLOW_PIN,
+            INTERVAL_500,
+            INTERVAL_500
+            );
         this->m_redLED = new LED(RED_PIN);
         this->m_display4Digits = new Display4Digits(p_proxy);
         this->m_actionDisplayConnection = new ActionDisplayConnection(this->m_display4Digits);
@@ -48,7 +52,10 @@ Program::Program()
             INTERVAL_40,
             this->m_actionActivateAlarm
             );
-            this->m_alarmClockController = new AlarmClockController(this->m_connection, INTERVAL_500);
+            this->m_alarmClockController = new AlarmClockController(
+                this->m_connection, 
+                INTERVAL_500
+                );
             this->m_alarmManager = new AlarmManager();
             this->m_alarmWebServer = new Alarm();
             this->m_alarmWebServer = new AlarmWebServer();
