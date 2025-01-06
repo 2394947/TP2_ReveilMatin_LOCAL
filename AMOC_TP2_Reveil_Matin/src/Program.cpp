@@ -51,6 +51,10 @@ Program::Program()
             INTERVAL_40,
             this->m_actionActivateAlarm
             );
+            this->m_alarmClockController = new AlarmClockController(this->m_connection, INTERVAL_500);
+            this->m_alarmManager = new AlarmManager();
+            this->m_alarmWebServer = new Alarm();
+            this->m_alarmWebServer = new AlarmWebServer();
         setupCore1Task();
 
         // //test mélodie
@@ -103,7 +107,9 @@ void Program::setupCore1Task() {
 /*************************************************************************************************************************************************/
 
 void Program::loop() {
-    this->m_connection->tick();    
+    this->m_connection->tick();
+    this->m_alarmWebServer->tick();
+    this->m_alarmClockController->tick();    
     this->m_alarmClock->run();
     this->m_buttonDisplayAlarms->tick();
     this->m_buttonActivateAlarm->tick();

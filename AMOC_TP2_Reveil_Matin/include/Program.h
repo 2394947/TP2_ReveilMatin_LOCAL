@@ -16,6 +16,9 @@
 #include "Melody/Tetris.h"
 #include "Melody/Doom.h"
 #include "Melody/SuperMarioBros.h"
+#include "AlarmClockController.h"
+#include "AlarmManager.h"
+#include "AlarmWebServer.h"
 class Program
 {
 public:
@@ -37,6 +40,9 @@ public:
     ButtonDisplayAvailableAlarm* m_buttonDisplayAlarms;
     ButtonActivateAlarm* m_buttonActivateAlarm;
     ActionDisplayConnection *m_actionDisplayConnection;
+    AlarmClockController* m_alarmClockController;
+    AlarmManager* m_alarmManager;
+    AlarmWebServer* m_alarmWebServer;
 
     // int16_t* m_melodies[3];
     // size_t m_melodyLengths[3];
