@@ -22,10 +22,6 @@
 class Program
 {
 public:
-    // Buzzer* m_buzzer;
-    // Tetris* m_tetrisMelody;
-    // Doom* m_doomMelody;
-    // SuperMarioBros* m_superMarioBrosMelody;
 
     Flicker* m_yellowFlicker;
     LED* m_redLED;
@@ -43,9 +39,7 @@ public:
     AlarmClockController* m_alarmClockController;
     AlarmManager* m_alarmManager;
     AlarmWebServer* m_alarmWebServer;
-
-    // int16_t* m_melodies[3];
-    // size_t m_melodyLengths[3];
+    Buzzer* m_buzzer;
 
     Program();
     void loop();

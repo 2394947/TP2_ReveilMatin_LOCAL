@@ -2,9 +2,6 @@
 #include <NTPClient.h>
 #include <WiFiUdp.h>
 
-// size_t melodyCount = 0;
-// size_t currentMelodyIndex = 0;
-
 Program::Program()
   : m_connection(nullptr),
     m_ntpClock(nullptr) {
@@ -55,28 +52,8 @@ Program::Program()
             this->m_alarmManager = new AlarmManager();
             this->m_alarmWebServer = new Alarm();
             this->m_alarmWebServer = new AlarmWebServer();
+            this->m_buzzer = new Buzzer(BUZZER_PIN);
         setupCore1Task();
-
-        // //test mélodie
-        // m_buzzer = new Buzzer(BUZZER_PIN);
-        // m_tetrisMelody = new Tetris();
-        // m_doomMelody = new Doom();
-        // m_superMarioBrosMelody = new SuperMarioBros();
-        
-        // m_melodies[0] = m_tetrisMelody->getMelody();
-        // m_melodies[1] = m_doomMelody->getMelody();
-        // m_melodies[2] = m_superMarioBrosMelody->getMelody();
-
-        // m_melodyLengths[0] = m_tetrisMelody->getMelodyLength();
-        // m_melodyLengths[1] = m_doomMelody->getMelodyLength();
-        // m_melodyLengths[2] = m_superMarioBrosMelody->getMelodyLength();
-
-        // melodyCount = sizeof(m_melodies) / sizeof(m_melodies[0]);
-        // currentMelodyIndex = 0;
-
-        // // Test mélodie initiale
-        // m_buzzer->playMelody(m_melodies[currentMelodyIndex], m_melodyLengths[currentMelodyIndex]);
-        // // test mélodie
 }
 
 /*************************************************************************************************************************************************/
@@ -114,12 +91,5 @@ void Program::loop() {
     this->m_buttonDisplayAlarms->tick();
     this->m_buttonActivateAlarm->tick();
     this->m_yellowFlicker->tick();
-    //this->m_internalClock->tick(); // On n'a plus à appeler le tick de InternalClock dans la loop. le tick() est pris en charge par le coeur1 qui appel run() dans sa loop.
-
-    // m_buzzer->tick();
-
-    // if (!m_buzzer->isPlaying()) {
-    //     currentMelodyIndex = (currentMelodyIndex + 1) % melodyCount;
-    //     m_buzzer->playMelody(m_melodies[currentMelodyIndex], m_melodyLengths[currentMelodyIndex]);
-    // }     
+    //this->m_internalClock->tick(); // On n'a plus à appeler le tick de InternalClock dans la loop. le tick() est pris en charge par le coeur1 qui appel run() dans sa loop.     
 }
